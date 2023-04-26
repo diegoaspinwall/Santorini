@@ -1,0 +1,71 @@
+
+Qs:
+- design templates to use?
+- y position, x position flipped confusing
+- how to combine command with memento pattern
+- how to combine abstract factory with strategy
+    feels kinda redundant
+
+Notes:
+- give player attribute that is opponent
+- 
+
+Patterns to know:
+MEMENTO: (three different classes)
+Originator - can use existing class for this. Takes a snapshot and saves it to the history.
+Caretaker - linear history. List of snapshots. As soon as you make an edit all future is deleted.
+    Also needs to handle undo/redo. Treat as a linear index, truncate list if you change something in the past history.
+Snapshot - contains a copy of the board
+    restore() lives here - caretaker will delete all remaining future. Something like game.board = history[i]
+
+COMMAND:
+Command - contains data
+    contains helper methods
+    contains execute() - SaveFile and OpenFile in here
+* read the page
+
+FACTORY:
+ABSTRACT FACTORY:
+use this to create players
+players both share a lot of information
+would have a player creator
+    also a white player creator and a blue player creator
+    set up correct turn stratgey, what workers it has etc.
+factory gives back: here's a blue player with a human strategy
+    keep track of their color as an attribute
+    don't need to have separate classes for each
+
+STRATEGY:
+
+
+
+Advice:
+- sketch out UML first
+- find patterns first
+- players should be separate from the board - board doesn't have workers
+- board, how to create players
+turn strategy could be separate from players
+- make human v. human
+- then random, heuristic players
+- then undo/redo
+
+
+factory pattern to create a player
+- set workers, set color attribute
+when setting up player, set up turn strategy of some kind
+restrictions will be put in turn strategy
+player can have a turn strategy
+
+abstract factory and factory method
+
+for moves think about command patterns
+
+iterator has to be more than a for loop
+
+memento for undo/redo
+
+refactoring.guru
+https://refactoring.guru/design-patterns/catalog
+
+
+
